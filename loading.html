@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+	 <title>Tagasundo - Loading</title>
+	 <meta charset="UTF-8"/>
+	 <link rel="stylesheet" href="" type="text/css"/>
+	 	    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1,user-scalable="no">
+	 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
+	 <style>
+	 
+	 body {
+  margin:0px;
+  
+}
+.id-card-wrapper {
+  height: 100vh;
+  width:100%;
+  background-color: #091214;
+ display: flex;
+
+}
+.id-card {
+  flex-basis: 100%;
+  max-width: 30em;
+  border: 1px solid rgb(97, 245, 245);
+  margin: auto;
+  color: #fff;
+  padding: 1em;
+  /*background-color: silver;*/
+  background-image: url('res/bg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 220px;
+  box-shadow: 0px 0px 3px 1px yellow, inset 0px 0px 3px 1px red;
+}
+
+.profile-row {
+  display: flex;
+}
+.profile-row .dp {
+  flex-basis: 33.3%;
+  position: relative;
+  margin: 24px;
+  align-self: center;
+}
+.profile-row .desc {
+  flex-basis: 66.6%;
+}
+
+.profile-row .dp img {
+  max-width: 100%;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0px 0px 4px 3px ;
+ /* box-shadow: 0px 0px 4px 3px #12a0a0;*/
+}
+.profile-row .desc {
+  padding: 1em;
+}
+
+.profile-row .dp .dp-arc-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 6px solid transparent;
+  border-top-color: yellow;
+  border-radius: 50%;
+  top: -6px;
+  left: -6px;
+
+  animation-duration: 2s;
+  animation-name: rotate-clock;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate-clock {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.profile-row .desc {
+  font-family: 'Orbitron', sans-serif;
+  /*color: #ecfcfb;*/
+  color: yellow;
+  text-shadow: 0px 0px 4px blue;
+  letter-spacing: 1px;
+}
+.profile-row .desc h1 {
+  margin: 0px;
+}
+ .myButton {
+	box-shadow:inset 0px 4px 0px 0px #dcecfb;
+	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+	background-color:#bddbfa;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:red;
+	font-family:Courier New;
+	font-size:11px;
+	font-weight:bold;
+	padding:4px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+</style>
+ </head>
+	 <body>
+
+<div class="id-card-wrapper">
+  <div class="id-card">
+    <div class="profile-row">
+      <div class="dp">
+        <div class="dp-arc-outer"></div>
+        <div class="dp-arc-inner"></div>
+        <img src="res/logo2.png">
+      </div>
+      <center>
+      <div class="desc">
+        <h3 style="font-size:15px">TAGASUNDO Official</h3>
+        <p style="font-size:10px"> Welcome to tagasundo official web page</p>
+                       
+            <button id="countdownButton"  class="myButton" onclick="startCountdown()">Open</button>
+      </div>
+      </center>
+    </div>
+  </div>
+</div>
+<script>
+  function startCountdown() {
+    let button = document.getElementById("countdownButton");
+    let remainingTime = 10; // in seconds
+    
+    button.disabled = true; // Disable the button during countdown
+    
+    let interval = setInterval(function() {
+      button.innerHTML = "Paghulat dong: " + remainingTime + "s";
+      remainingTime--;
+      
+      if (remainingTime < 0) {
+        clearInterval(interval);
+        button.innerHTML = "Open";
+        button.disabled = false; // Re-enable the button after countdown
+        
+        // Redirect to the desired page
+        window.location.href = "index-real.php";
+      }
+    }, 1000); // Update every second
+  }
+</script>
+	 </body>
+ </html>
